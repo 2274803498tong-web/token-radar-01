@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <h1>Token Radar</h1>
+      <p class="tagline">Pre-token protocols, ranked by what their token would be worth — and how to farm each one.</p>
+    </div>
+    <div class="meta" id="meta"></div>
+  </div>
+</header>
+<nav class="tabs" id="tabs" aria-label="Views">
+  <button data-tab="board" class="active" type="button">Board</button>
+  <button data-tab="live" type="button">Live tokens</button>
+  <button data-tab="method" type="button">How it ranks</button>
+</nav>
+<main>
+  <section id="controls" aria-label="Filter the board">
+    <label>Search <input id="q" type="search" placeholder="Protocol name or slug" autocomplete="off"></label>
+    <label>Category <select id="category"><option value="all">All categories</option></select></label>
+    <label>Chain <select id="chain"><option value="all">All chains</option></select></label>
+    <label class="check"><input id="watchlist" type="checkbox"> Watchlist only</label>
+    <label>Sort by
+      <select id="sort">
+        <option value="implied">Implied value</option>
+        <option value="tvl">TVL</option>
+        <option value="change">7-day change</option>
+        <option value="age">Age</option>
+        <option value="rank">Rank</option>
+      </select>
+    </label>
+    <button id="dir" type="button" title="Reverse sort order">↓ desc</button>
+  </section>
+  <p class="count" id="count" aria-live="polite"></p>
+  <section id="detail" aria-label="Protocol detail" hidden></section>
+  <section id="board-view" aria-label="Ranked board">
+    <table id="board">
+      <thead>
+        <tr>
+          <th data-sort="rank">#</th>
+          <th data-sort="name">Protocol</th>
+          <th>Category</th>
+          <th>Chains</th>
+          <th data-sort="tvl">TVL</th>
+          <th data-sort="change">7d</th>
+          <th data-sort="age">Age</th>
+          <th data-sort="implied">Implied value</th>
+          <th>Multiple</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </section>
+  <section id="live-view" aria-label="Live-token comparables" hidden></section>
+  <section id="method-view" aria-label="How the radar ranks" hidden></section>
+</main>
+<footer>
+  <p id="foot"></p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
